@@ -1,0 +1,131 @@
+{% extends 'IVENTO/basic.html' %}
+
+{% block title%} Team {% endblock %}
+{% block css %}
+ body{
+  box-sizing: border-box;
+
+  background-image: url("https://media.istockphoto.com/vectors/confetti-celebration-vector-id1015643134?b=1&k=6&m=1015643134&s=612x612&w=0&h=GxVllCcPjoCoHnr2Q-uWxSR0v_B3On6TLLAclFGdyBs=");
+
+}
+
+
+.box15{position:relative}
+.box15 img{width:100%;height:auto}
+.box15 .box-content{width:100%;height:100%;position:absolute;top:0;left:0;transition:all .5s ease 0s}
+.box15:hover .box-content{background-color:rgba(255,242,242,.8)}
+.box15 .box-content:after,.box15 .box-content:before{content:"";width:50px;height:50px;position:absolute;opacity:0;transform:scale(1.5);transition:all .6s ease .3s}
+.box15 .box-content:before{border-left:1px solid #040404;border-top:1px solid #040404;top:19px;left:19px}
+.box15 .box-content:after{border-bottom:1px solid #040404;border-right:1px solid #040404;bottom:19px;right:19px}
+.box15:hover .box-content:after,.box15:hover .box-content:before{opacity:1;transform:scale(1)}
+.box15 .title{font-size:22px;color:#000;margin:0;position:relative;top:0;opacity:0;transition:all 1s ease 10ms}
+.box15:hover .title{top:39%;opacity:1;
+
+    text-align: center;
+    transition:all .5s cubic-bezier(1,-.53,.405,1.425) 10ms}
+.box15 .title:after{content:"";width:0;height:1px;background:#040404;position:absolute;bottom:-8px;left:0;right:0;margin:0 auto;transition:all 1s ease 0s}
+.box15:hover .title:after{width:80%;transition:all 1s ease .8s}
+.box15 .icon{width:100%;margin:0 auto;position:absolute;bottom:0;opacity:0;transition-duration:.6s;transition-timing-function:cubic-bezier(1,-.53,.405,1.425);transition-delay:.1s}
+.box15:hover .icon{bottom:35%;
+ opacity:1}
+.box15 .icon p{display:block;
+ text-align: center;
+  margin-right: 10px;
+font-size: 14px;
+}
+
+.box15 .icon p :hover{background:#000;color:#fff}
+@media only screen and (max-width:990px){.box15{margin-bottom:30px}
+}
+{% endblock %}
+{% block body %}
+<body>
+{% load static %}
+<div  class="container-fluid">
+  <div style="background-image: url('https://thumbs.dreamstime.com/b/celebration-background-golden-champagne-bottle-confetti-stars-party-streamers-christmas-birthday-wedding-flat-lay-161039153.jpg');background-size:auto;" class=" jumbotron text-center">
+    <h1 style="font-size: 45px;" >About us</h1>
+    <p style="color: #000000;"><h6>Ivento is originally designed to help you get your dream event organisation right under your finger tips. At Ivento, there are various event options and satisfying service is guaranteed.</h6></p>
+  </div>
+</div>
+<div class="container mt-40">
+</div>
+<div class="container mt-40 ">
+  <h1 style="font-size:30px; margin-top: 100px; margin-bottom: 100px;" class="text-center">Meet Our Team</h1>
+  <div class="row mt-30">
+    <div class="col-md-3 col-sm-6">
+      <div class="box15">
+        <img style=" height:350px;" src="{% static 'ivento/tt4.jpg' %}" alt="">
+        <div class="box-content">
+          <h3 class="title">Tanjum Tanha</h3>
+          <div class="icon">
+            <p>tanjum.tanha@northsouth.edu</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <div class="box15">
+        <img  style=" height:350px;" src="{% static 'ivento/tt1.jpg' %}" alt="">
+        <div class="box-content">
+          <h3 class="title">Tahiratun Annesha</h3>
+          <div class="icon">
+            <p class="text-center">tahiratun.annasha@northsouth.edu</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <div class="box15">
+        <img style=" height:350px;"  src="{% static 'ivento/tt2.jpg' %}" alt="">
+        <div class="box-content">
+          <h3 class="title">Nadia Binte Rahman</h3>
+          <div class="icon">
+            <p class="text-center">rahman.peeya@northsouth.edu</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <div class="box15">
+        <img style=" height:350px;" src="{% static 'ivento/tt3.jpg' %}" alt="">
+        <div class="box-content">
+          <h3 class="title">jobayer Chowdhury </h3>
+          <div class="icon">
+            <p>jobayer.chowdhury@northsouth.edu</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top: 100px;"></div>
+</div>
+</body>
+{% endblock %}
+{% block js %}
+<script>
+if (localStorage.getItem('cart') == null) {
+    var cart = {};
+} else {
+    cart = JSON.parse(localStorage.getItem('cart'));
+}
+console.log(cart);
+var sum = 0;
+if ($.isEmptyObject(cart)) {
+    //if object is empty
+    mystr = `<p>Your cart is empty, please add some items to your cart before checking out!</p>`
+    $('#items').append(mystr);
+} else {
+    for (item in cart) {
+        let name = cart[item][1];
+        let qty = cart[item][0];
+        sum = sum + qty;
+        mystr = `<li class="list-group-item d-flex justify-content-between align-items-center">
+                    ${name}
+                    <span class="badge badge-primary badge-pill">${qty}</span>
+                </li>`
+        $('#items').append(mystr);
+    }
+}
+document.getElementById('cart').innerHTML = sum;
+</script>
+{% endblock %}

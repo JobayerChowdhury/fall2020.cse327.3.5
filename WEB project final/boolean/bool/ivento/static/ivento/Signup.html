@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)http://localhost:8000/ivento/register/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Signup</title>
+<link rel="stylesheet" href="./Signup_files/bootstrap.min.css">
+<script src="./Signup_files/jquery.min.js.download"></script>
+<script src="./Signup_files/bootstrap.min.js.download"></script>
+<style type="text/css">
+        body {
+
+
+    background: url("https://res.cloudinary.com/finnhvman/image/upload/v1541930411/pattern.png");
+}
+	.login-form {
+		width: 340px;
+    	margin: 50px auto;
+        position: relative;
+        top: 120px;
+	}
+    .login-form form {
+    	margin-bottom: 15px;
+        background: #f7f7f7;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+        padding: 30px;
+    }
+    .login-form h2 {
+        margin: 0 0 15px;
+    }
+    .form-control, .btn {
+        min-height: 38px;
+        border-radius: 2px;
+    }
+    .btn {
+        font-size: 15px;
+        font-weight: bold;
+    }
+</style>
+</head>
+
+
+<body><div class="login-form">
+    <hgroup>
+     
+    </hgroup>
+    <form action="http://localhost:8000/ivento/register/" method="POST">
+        <input type="hidden" name="csrfmiddlewaretoken" value="R7jib5n5yuZKZWm7EXtfrVHpHpUeFMiQAYlmmOBcJukqMUdONqUowSx2AB94ZGnF">
+        <h2 class="text-center">Signup</h2>
+          <div class="form-group">
+            <input type="text" name="username" class="form-control" placeholder="User Name" required="required">
+        </div>
+        <div class="form-group">
+            <input type="email" name="email" class="form-control" placeholder="Email" required="required">
+        </div>
+
+        <div class="form-group">
+            <input type="password" name="password1" class="form-control" placeholder="Password" required="required">
+        </div>
+        <div class="form-group">
+            <input type="password" name="password2" class="form-control" placeholder="Confirm Password" required="required">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block"><a href="http://localhost:8000/oauth/login/facebook/">Facebook</a></button>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">Singup</button>
+        </div>
+
+    </form>
+    <p class="text-center"><a href="http://localhost:8000/ivento/login/">Already registered</a></p>
+</div>
+
+
+
+</body></html>
